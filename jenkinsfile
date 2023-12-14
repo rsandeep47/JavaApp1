@@ -4,27 +4,21 @@ pipeline {
     stages {
         stage('CLONE SCM') {
             steps {
-                echo 'cloning code from Github'
-				git branch: 'main', url: 'https://github.com/devopstraininghub/webapp1.git'
+                echo 'Cloing code from GITHUB'
+				git branch: 'main', url: 'https://github.com/rsandeep47/JavaApp1.git'
             }
         }
-		
-				
-		stage('Build Artifact') {
+		 stage('Build artifact') {
             steps {
-                echo 'Build Artifact with maven build tool'
+                echo 'Build artifact using maven'
 				sh 'mvn clean install'
             }
         }
-		
-		
-		stage('Deploy') {
+		 stage('Deploy') {
             steps {
-                echo 'Deploy to tomcat ap/n server '
-				deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://3.88.103.180:8081/')], contextPath: 'facebook', war: '**/*.war'
+                echo 'Deploy app to Tomcat Applicaton Server'
+				deploy adapters: [tomcat9(credentialsId: 'TomcatCred', path: '', url: 'http://3.91.244.139:8082/')], contextPath: 'MyJavaApp2', war: '**/*.war'
             }
         }
     }
 }
-
-

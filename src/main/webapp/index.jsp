@@ -17,6 +17,6 @@
     </style>
 </head>
 <body>
-    <h1> WELCOME TO B12 AWS DEVOPS</h1>
+    <h1> WELCOME TO CLOUD COMPUTING AWS DEVOPS WORLD</h1>
 </body>
 </html>

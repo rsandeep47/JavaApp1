@@ -17,6 +17,6 @@
     </style>
 </head>
 <body>
-    <h1> WELCOME TO CLOUD COMPUTING AWS DEVOPS WORLD</h1>
+    <h1> WELCOME TO CLOUD COMPUTING AWS DEVOPS </h1>
 </body>
 </html>

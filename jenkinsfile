@@ -1,8 +1,14 @@
 pipeline {
-    agent slave1
+    agent any
+	
+	environment {
+        SLAVE_NODE_NAME = 'slave1'
+        SLAVE_NODE_LABEL = 'slave1'
+    }
+
 
     stages {
-        stage('Code from SCM') {
+        stage('Clone code from SCM') {
             steps {
                 echo 'Get code from GITHUB SCM'
 				git branch: 'main', url: 'https://github.com/rsandeep47/JavaApp1.git'

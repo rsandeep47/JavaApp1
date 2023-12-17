@@ -1,23 +1,23 @@
 pipeline {
-    agent any
+    agent slave1
 
     stages {
-        stage('CLONE SCM') {
+        stage('Code from SCM') {
             steps {
-                echo 'Cloing code from GITHUB'
+                echo 'Get code from GITHUB SCM'
 				git branch: 'main', url: 'https://github.com/rsandeep47/JavaApp1.git'
             }
         }
-		 stage('Build artifact') {
+		stage('Build Artifact') {
             steps {
-                echo 'Build artifact using maven'
+                echo 'Build Artifact using maven'
 				sh 'mvn clean install'
             }
         }
-		 stage('Deploy') {
+		stage('Deploy') {
             steps {
-                echo 'Deploy app to Tomcat Applicaton Server'
-				deploy adapters: [tomcat9(credentialsId: 'TomcatCred', path: '', url: 'http://3.91.244.139:8082/')], contextPath: 'MyJavaApp3', war: '**/*.war'
+                echo 'Deployed on Tomcat'
+				deploy adapters: [tomcat9(credentialsId: 'TomcatCredntials', path: '', url: 'http://3.95.175.203:8081/')], contextPath: 'JavaApp', war: '**/*.war'
             }
         }
     }

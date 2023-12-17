@@ -1,6 +1,13 @@
 pipeline {
-    agent slave1
-	   stages {
+    agent any
+	
+	environment {
+        SLAVE_NODE_NAME = 'slave1'
+        SLAVE_NODE_LABEL = 'slave'
+    }
+
+
+    stages {
         stage('Clone code from SCM') {
             steps {
                 echo 'Get code from GITHUB SCM'
@@ -16,7 +23,7 @@ pipeline {
 		stage('Deploy') {
             steps {
                 echo 'Deployed on Tomcat'
-				deploy adapters: [tomcat9(credentialsId: 'TomcatCredntials', path: '', url: 'http://3.95.175.203:8081/')], contextPath: 'JavaApp', war: '**/*.war'
+				deploy adapters: [tomcat9(credentialsId: 'TomcatCredntials', path: '', url: 'http://18.208.217.74:8081/')], contextPath: 'JavaApp', war: '**/*.war'
             }
         }
     }

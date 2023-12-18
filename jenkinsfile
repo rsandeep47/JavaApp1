@@ -1,11 +1,8 @@
 pipeline {
-    agent any
-environment {
-        SLAVE_NODE_NAME = 'slave1'
-        SLAVE_NODE_LABEL = 'slave'
-    }
-
-	    stages {
+    agent slave1
+	
+	
+    stages {
         stage('Clone code from SCM') {
             steps {
                 echo 'Get code from GITHUB SCM'
@@ -26,3 +23,5 @@ environment {
         }
     }
 }
+
+

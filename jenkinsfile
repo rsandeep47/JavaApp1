@@ -1,5 +1,5 @@
 pipeline {
-    agent slave1
+    agent any
 environment {
         SLAVE_NODE_NAME = 'slave1'
         SLAVE_NODE_LABEL = 'slave'
